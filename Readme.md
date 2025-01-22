@@ -1,4 +1,4 @@
-# Adaptive Budget Optimization for Multichannel Advertising Using Combinatorial Bandits
+# Adaptive Budget Optimization for Multichannel Advertising Using Combinatorial Bandits (AAMAS (Extended Abstract) 2025)
 
 This is the code contribution for simulation of long running ad campaigns and TUCBMAE algorithm
 
