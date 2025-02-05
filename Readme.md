@@ -1,98 +1,92 @@
-# Adaptive Budget Optimization for Multichannel Advertising Using Combinatorial Bandits (AAMAS (Extended Abstract) 2025)
+# 🚀 Adaptive Budget Optimization for Multichannel Advertising Using Combinatorial Bandits (AAMAS 2025 - Extended Abstract)
 
-This is the code contribution for simulation of long running ad campaigns and TUCBMAE algorithm
+Welcome to the **Adaptive Budget Optimization** repository! This project focuses on simulating long-running ad campaigns and implementing the **TUCBMAE algorithm** to optimize budget allocation efficiently. 📊📈
 
-# System Requirements
+---
+## 📌 System Requirements
 
-The code has been tested in systems with the following OS
+The code has been successfully tested on:
 
-- Ubuntu 20.04.2 LTS
+- **🖥 Ubuntu 20.04.2 LTS**
 
-## Datasets
+---
+## 📂 Datasets
 
-This reposistory contains two datasets from real campaigns with 3 subcampaigns ecah run on google platform
+This repository includes **two real-world advertising datasets**, each with three sub-campaigns run on the **Google Ads platform**:
 
-1. Attendance System
-2. Internet Service Provider
+1. 📡 **Attendance System**
+2. 🌐 **Internet Service Provider**
 
-We thank Sony Biz Networks Corporation for providing this data from their services NURO Biz and AKASHI.
+🔹 Special thanks to **Sony Biz Networks Corporation** for providing this dataset from their services **NURO Biz** and **AKASHI**.
 
-For privacy reasons the click and cost values randomly projected so as to keep predictive power while making it practically impossible to recover the original features. This data may not exactly replicate the values reported in paper as the experiments were consucted on original data. The results of criterio dataset 
-can be exactly replicated.
+🔐 **Privacy Note:** Click and cost values have been **randomly projected** to maintain predictive power while ensuring that original values cannot be reconstructed. **The Criteo dataset results are fully reproducible.**
 
+---
+## ⚙️ Installation & Dependencies
 
-# Dependencies:
+Follow these steps to set up the required environment:
 
-Run the following command to create and activate the environment:
-
-```
-$ conda create --name tucbmae
-$ conda activate tucbmae
-$ python -m pip install -r requirements.txt
-$ pip install -e .
-
-```
-
-# Hyperparameter configurations
-
-The hyperparameters can be set in configpolicy. The hyperparameters are described as follows:
-
-num_month : The number of months the campaigns are to be simulated. For example 16 for AI Prediction analysis tool and 1 for Criterio dataset. 
-
-data_google : Path to data from Platform source A ex : data/attendance_campaign_data.csv
-
-data_smn :Path to data from Platform source B
-
-data_criterio: Path to criteriob dataset ex: data/criterio_data_filtered.csv
-
-use_wandb : Enables login results to wandb
-
-data_channel : Depends on data source can be can be google (Platform A), smn(Platform B), criterio depending on platform source
-
-baseline_name : GPUCBBaseline_Policy (For GP based baseline) or Human (for comparison with human allocation)
-
-exploration_strategy : ucb (for UCB exploration) or ts (for thompson sampling exploration)
-
-adaptation_strategy : Can be any of the following options - discounted_reward sliding_window no_change_detection mae_test
-
-noise : Controls the noise level in the reward function default 0.1
-
-use_psudo_conversion : If set to True uses pseudo_conversion as reward otherwise uses clicks
-
-non_stationarity_detection_threshold : Threshold for mae test
-
-beta : exploration factor default 2
-
-learning_data_points : Number of data points to learn the current model default 6
-
-
-# Simulation Environment
-
-Considerations for the environment:
-
-    1. Each episode is of 1 month the simulation moves to next month once the episode ends
-    2. Actions : Budget allocation
-    3. Reward : Clicks, Pseudo conversion
-    4. Observations : Performance data cost/conversion/history etc (extend as per requirement)
-    5. Data column format : date, campaign_name, cost, click, ctv, vtv (view through conversion) if available
-    6. Tp = 20 (future window size and stationary days) and change threshold = 1 bedget granualarity=500
-
-    Specifications for the environment:
-
-        Monthly budget setting : Sum of the total costs consumed by the campaigns in the month
-        Reward : Modeled as a function of cost and clicks or cost and pseudo conversions
-        Cost : Cost control is based on two simple rules as used by google ads
-
-# Reproducing results of TUCBMAE algorithm and baselines
-
-For TUCBMAE algorithm run
-
-```
-$ python main.py
+```sh
+conda create --name tucbmae python=3.8
+conda activate tucbmae
+python -m pip install -r requirements.txt
+pip install -e .
 ```
 
-For baselines run
+---
+## 🔧 Hyperparameter Configuration
 
+Configure hyperparameters in `configpolicy.py`. Key parameters include:
+
+🔹 **Simulation Parameters:**
+- `num_month` → Number of months for simulation (e.g., `16` for AI Prediction, `1` for Criteo).
+
+🔹 **Data Paths:**
+- `data_google` → Path to Google campaign data (e.g., `data/attendance_campaign_data.csv`).
+- `data_smn` → Path to another platform’s data.
+- `data_criterio` → Path to Criteo dataset (e.g., `data/criterio_data_filtered.csv`).
+
+🔹 **Experiment Settings:**
+- `use_wandb` → Enable logging results to **Weights & Biases**.
+- `baseline_name` → Use `GPUCBBaseline_Policy` (GP-based) or `Human` (manual allocation).
+- `exploration_strategy` → Choose `ucb` (UCB exploration) or `ts` (Thompson Sampling).
+- `adaptation_strategy` → Select from `discounted_reward`, `sliding_window`, `no_change_detection`, `mae_test`.
+- `use_psudo_conversion` → Use **pseudo conversions** as reward if `True`, else use **clicks**.
+
+---
+## 🎮 Simulation Environment
+
+🔹 **Key Features:**
+- 📅 **Episodes** → Each episode represents **one month** of ad campaign simulation.
+- 💰 **Actions** → Budget allocation for campaigns.
+- 🎯 **Rewards** → Clicks or pseudo conversions.
+- 📊 **Observations** → Performance data (cost, conversion rates, history, etc.).
+- 🗃 **Data Format:**
+  - `date`, `campaign_name`, `cost`, `click`, `ctv`, `vtv` (view-through conversions, if available).
+- ⚙ **Environment Configurations:**
+  - `Tp = 20` (future window size & stationary days).
+  - `change_threshold = 1`, `budget_granularity = 500`.
+
+🔹 **Cost Control & Reward Modeling:**
+- 🏦 **Monthly Budget Setting** → Based on actual total costs consumed.
+- 📈 **Reward Function** → Modeled as a function of cost vs. clicks or pseudo conversions.
+- ⚠ **Cost Control** → Uses Google Ads-style budgeting rules.
+
+---
+## 🔄 Running Experiments
+
+### 🚀 Running the TUCBMAE Algorithm
+
+```sh
+python main.py
 ```
-$ python eval_baseline.py
+
+### 🏁 Running Baseline Comparisons
+
+```sh
+python eval_baseline.py
 ```
+
+---
+
+📜 **For more details, refer to our research paper or reach out for assistance!** ✉️
