@@ -8,6 +8,19 @@ The code has been tested in systems with the following OS
 
 - Ubuntu 20.04.2 LTS
 
+## Datasets
+
+This reposistory contains two datasets from real campaigns with 3 subcampaigns ecah run on google platform
+
+1. Attendance System
+2. Internet Service Provider
+
+We thank Sony Biz Networks Corporation for providing this data from their services NURO Biz and AKASHI.
+
+For privacy reasons the click and cost values randomly projected so as to keep predictive power while making it practically impossible to recover the original features. This data may not exactly replicate the values reported in paper as the experiments were consucted on original data. The results of criterio dataset 
+can be exactly replicated.
+
+
 # Dependencies:
 
 Run the following command to create and activate the environment:
@@ -26,7 +39,7 @@ The hyperparameters can be set in configpolicy. The hyperparameters are describe
 
 num_month : The number of months the campaigns are to be simulated. For example 16 for AI Prediction analysis tool and 1 for Criterio dataset. 
 
-data_google : Path to data from Platform source A ex : data/aianalysistool_campaign_data.csv
+data_google : Path to data from Platform source A ex : data/attendance_campaign_data.csv
 
 data_smn :Path to data from Platform source B
 
