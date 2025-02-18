@@ -89,4 +89,25 @@ python eval_baseline.py
 
 ---
 
-📜 **For more details, refer to our research paper or reach out for assistance!** ✉️
+### License
+
+This project is licensed under the Attribution-NonCommercial 4.0 International License.
+
+### Contributing
+
+Contributions are welcome! Please fork the repository and submit a pull request for any improvements or bug fixes
+
+### Cite
+
+If you use or reference ABA or the provided dataset, please cite us with the following BibTeX entry:
+
+```bibtex
+@article{gangopadhyay2025adaptive,
+  title={Adaptive Budget Optimization for Multichannel Advertising Using Combinatorial Bandits},
+  author={Gangopadhyay, Briti and Wang, Zhao and Chiappa, Alberto Silvio and Takamatsu, Shingo},
+  journal={arXiv preprint arXiv:2502.02920},
+  year={2025}
+}
+
+
+📜 **For more details, refer to our research paper or reach out to briti.gangopadhyay@sony.con for assistance!** ✉️
