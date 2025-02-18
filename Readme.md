@@ -1,6 +1,7 @@
 # 🚀 Adaptive Budget Optimization for Multichannel Advertising Using Combinatorial Bandits (AAMAS 2025 - Extended Abstract)
 
 Welcome to the **Adaptive Budget Optimization** repository! This project focuses on simulating long-running ad campaigns and implementing the **TUCBMAE algorithm** to optimize budget allocation efficiently. 📊📈
+It is the official implementation of the paper by Briti Gangopadhyay, Zhao Wang, Alberto Silvia Chiappa and Takamatsu Shingo.
 
 ---
 ## 📌 System Requirements
