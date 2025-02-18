@@ -110,4 +110,4 @@ If you use or reference ABA or the provided dataset, please cite us with the fol
 }
 
 
-📜 **For more details, refer to our research paper or reach out to briti.gangopadhyay@sony.con for assistance!** ✉️
+📜 **For more details, refer to our research paper or reach out to briti.gangopadhyay@sony.com for assistance!** ✉️
