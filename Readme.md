@@ -33,7 +33,6 @@ conda activate tucbmae
 python -m pip install -r requirements.txt
 pip install -e .
 ```
-
 ---
 ## 🔧 Hyperparameter Configuration
 
